@@ -13,6 +13,12 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
    (function(symbolName) {
       
       
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 6250, function(sym, e) {
+         sym.play("loop");
+
+      });
+      //Edge binding end
+
    })("stage");
    //Edge symbol end:'stage'
 

@@ -30,7 +30,7 @@ var symbols = {
          {
             id:'RoundRect',
             type:'rect',
-            rect:['10px','10px','100px','100px','auto','auto'],
+            rect:['12px','10px','100px','100px','20px','126px'],
             borderRadius:["10px","10px","10px","10px"],
             fill:["rgba(255,0,98,0.65)"],
             stroke:[0,"rgb(0, 0, 0)","none"],
@@ -48,8 +48,9 @@ var symbols = {
          ],
          "${_RoundRect}": [
             ["color", "background-color", 'rgba(255,0,98,0.65)'],
-            ["transform", "scaleX", '1'],
             ["style", "top", '10px'],
+            ["transform", "scaleX", '1'],
+            ["style", "bottom", 'auto'],
             ["style", "height", '100px'],
             ["style", "right", 'auto'],
             ["style", "left", '10px'],
@@ -66,10 +67,18 @@ var symbols = {
       "Default Timeline": {
          fromState: "Base State",
          toState: "",
-         duration: 0,
+         duration: 6250,
          autoPlay: true,
+         labels: {
+            "loop": 250
+         },
          timeline: [
-         ]
+            { id: "eid12", tween: [ "style", "${_RoundRect}", "width", '150px', { fromValue: '100px'}], position: 250, duration: 1000, easing: "easeInExpo" },
+            { id: "eid25", tween: [ "style", "${_RoundRect}", "width", '100px', { fromValue: '150px'}], position: 3250, duration: 1000, easing: "easeInExpo" },
+            { id: "eid23", tween: [ "style", "${_RoundRect}", "left", '480px', { fromValue: '10px'}], position: 250, duration: 1000, easing: "easeInExpo" },
+            { id: "eid24", tween: [ "style", "${_RoundRect}", "left", '10px', { fromValue: '480px'}], position: 3250, duration: 1000, easing: "easeInExpo" },
+            { id: "eid27", tween: [ "style", "${_RoundRect}", "top", '290px', { fromValue: '10px'}], position: 1750, duration: 1000, easing: "swing" },
+            { id: "eid28", tween: [ "style", "${_RoundRect}", "top", '9.85px', { fromValue: '290px'}], position: 4750, duration: 1000 }         ]
       }
    }
 }
