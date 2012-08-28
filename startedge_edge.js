@@ -30,10 +30,11 @@ var symbols = {
          {
             id:'RoundRect',
             type:'rect',
-            rect:['5px','5px','100px','100px','auto','auto'],
+            rect:['10px','10px','100px','100px','auto','auto'],
             borderRadius:["10px","10px","10px","10px"],
             fill:["rgba(255,0,98,0.65)"],
-            stroke:[0,"rgb(0, 0, 0)","none"]
+            stroke:[0,"rgb(0, 0, 0)","none"],
+            transform:[]
          }],
          symbolInstances: [
 
@@ -46,10 +47,12 @@ var symbols = {
             ["style", "width", '100%']
          ],
          "${_RoundRect}": [
-            ["style", "top", '5px'],
-            ["style", "height", '100px'],
             ["color", "background-color", 'rgba(255,0,98,0.65)'],
-            ["style", "left", '5px'],
+            ["transform", "scaleX", '1'],
+            ["style", "top", '10px'],
+            ["style", "height", '100px'],
+            ["style", "right", 'auto'],
+            ["style", "left", '10px'],
             ["style", "width", '100px']
          ],
          "${_Stage}": [
