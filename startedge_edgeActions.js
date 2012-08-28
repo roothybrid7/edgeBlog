@@ -14,7 +14,24 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
       
       
       Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 7250, function(sym, e) {
+         var count = sym.getVariable("count");
+         count++;
+         sym.setVariable("count", count);
+         
          sym.play("loop");
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
+         sym.setVariable("count", 0);
+
+      });
+      //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1250, function(sym, e) {
+         var count = sym.getVariable("count");
+         sym.$("Count").html(count);
 
       });
       //Edge binding end
