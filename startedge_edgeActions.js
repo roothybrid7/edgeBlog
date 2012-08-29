@@ -13,12 +13,11 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
    (function(symbolName) {
       
       
-      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 7750, function(sym, e) {
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 8250, function(sym, e) {
          var count = sym.getVariable("count");
          count++;
+         sym.$("Count").html(count);
          sym.setVariable("count", count);
-         
-         sym.play("loop");
 
       });
       //Edge binding end
@@ -29,15 +28,16 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
       });
       //Edge binding end
 
-      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1750, function(sym, e) {
-         var count = sym.getVariable("count");
-         sym.$("Count").html(count);
+      
+
+      Symbol.bindElementAction(compId, symbolName, "${_play}", "click", function(sym, e) {
+         sym.play();
 
       });
       //Edge binding end
 
-      Symbol.bindElementAction(compId, symbolName, "${_play}", "click", function(sym, e) {
-         sym.play();
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 8750, function(sym, e) {
+         sym.play("loop");
 
       });
       //Edge binding end
