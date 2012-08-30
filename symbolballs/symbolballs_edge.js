@@ -50,13 +50,13 @@ var symbols = {
          ],
          "${_RoundRect}": [
             ["style", "right", 'auto'],
-            ["style", "cursor", 'pointer'],
+            ["style", "left", '0px'],
             ["style", "border-bottom-left-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
             ["color", "border-color", 'rgba(51,51,51,1.00)'],
             ["subproperty", "boxShadow.offsetH", '5px'],
             ["color", "background-color", 'rgba(192,192,192,0.00)'],
             ["style", "border-top-left-radius", [50,50], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["subproperty", "boxShadow.color", 'rgba(255,54,54,0.65)'],
+            ["subproperty", "boxShadow.blur", '3px'],
             ["style", "border-bottom-right-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
             ["style", "border-style", 'solid'],
             ["style", "border-top-right-radius", [50,50], {valueTemplate:'@@0@@px @@1@@px'} ],
@@ -64,9 +64,9 @@ var symbols = {
             ["style", "top", '0px'],
             ["subproperty", "boxShadow.offsetV", '5px'],
             ["style", "height", '80px'],
-            ["subproperty", "boxShadow.blur", '3px'],
+            ["subproperty", "boxShadow.color", 'rgba(255,54,54,0.65)'],
             ["style", "border-width", '10px'],
-            ["style", "left", '0px']
+            ["style", "cursor", 'pointer']
          ],
          "${_sea}": [
             ["style", "height", '10%'],
