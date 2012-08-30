@@ -5,7 +5,7 @@
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){sym.getVariable("updateDrop")();});
 //Edge binding end
-Symbol.bindSymbolAction(compId,symbolName,"creationComplete",function(sym,e){var balls=["redBall","blueBall","greenBall"];function drop(){var ballIndex=Math.floor(Math.random()*9999)%balls.length;ball=sym.createChildSymbol(balls[ballIndex],"RoundRect");ball.play();}
+Symbol.bindSymbolAction(compId,symbolName,"creationComplete",function(sym,e){var balls=["redBall","blueBall","greenBall"];function drop(){var ballIndex=Math.floor(Math.random()*9999)%balls.length,ball=sym.createChildSymbol(balls[ballIndex],"RoundRect");ball.play();}
 function updateDrop(){var timeout=Math.random()*sym.getLabelPosition("moveEnd")/4;if(sym.isPlaying()){drop();}
 setTimeout(updateDrop,timeout);}
 sym.setVariable("updateDrop",updateDrop);});
