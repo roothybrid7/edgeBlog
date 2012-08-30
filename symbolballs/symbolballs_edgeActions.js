@@ -44,7 +44,8 @@ sym.getVariable("updateDrop")();
          }
          
          function updateDrop() {
-           var timeout = Math.random() * 1000;
+           // sym.getLabelPosition("moveEnd") OR sym.getDuration()
+           var timeout = Math.random() * sym.getLabelPosition("moveEnd") / 4;
            if (sym.isPlaying()) {
              drop();
            }
@@ -74,7 +75,16 @@ sym.getVariable("updateDrop")();
    //Edge symbol: 'hoge'
    (function(symbolName) {   
    
-      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 500, function(sym, e) {
+      
+
+      Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
+         sym.$("Ellipse").css({position: "absolute"});
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindTimelineAction(compId, symbolName, "Default Timeline", "complete", function(sym, e) {
          sym.deleteSymbol();
 
       });
@@ -88,11 +98,19 @@ sym.getVariable("updateDrop")();
    //Edge symbol: 'redBall_1'
    (function(symbolName) {   
    
-      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1000, function(sym, e) {
+      
+
+      Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
+         sym.$("Ellipse").css({position: "absolute"});
+
+      });
+      //Edge binding end
+
+      Symbol.bindTimelineAction(compId, symbolName, "Default Timeline", "complete", function(sym, e) {
          sym.deleteSymbol();
 
       });
-         //Edge binding end
+      //Edge binding end
 
       })("blueBall");
    //Edge symbol end:'blueBall'
@@ -102,11 +120,20 @@ sym.getVariable("updateDrop")();
    //Edge symbol: 'blueBall_1'
    (function(symbolName) {   
    
-      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1000, function(sym, e) {
+      
+
+      Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
+         sym.$("Ellipse").css({position: "absolute"});
+         
+
+      });
+      //Edge binding end
+
+      Symbol.bindTimelineAction(compId, symbolName, "Default Timeline", "complete", function(sym, e) {
          sym.deleteSymbol();
 
       });
-         //Edge binding end
+      //Edge binding end
 
       })("greenBall");
    //Edge symbol end:'greenBall'

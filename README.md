@@ -67,3 +67,74 @@ Timelineの編集で、Pinによる記録は、四隅の移動に使っていま
 ##SymbolBalls
 Symbolとして作成したいろんなカラーのボールを落とす
 
+- ボールを落とす図形は、左上から左右に移動するアニメーションを繰り返す。
+- 図形アニメーションが動作している間、赤・緑・青のボール図形のいずれかのSymbolを作成し、下に向かって落とす。
+- ボールを落とす図形をクリックすると、図形アニメーションが停止し、ボールのSymbol作成も停止する。
+
+###Tips
+
+- ボールを落とす図形の繰り返しアニメーション
+    - 今回は、一連の左右に移動するアニメーションが完了したあとに再度再生するため、Stageの`complete`イベントのアクションの中で`sym.play(0)`を呼び出しています。
+- Symbolの作成について
+    - Symbol化したい要素を一つまたは複数選択して変換することで作成できます。
+    - Symbol変換後、Symbolのdivコンテナの中に選択した要素が入り、Timelineが一つ作成されます。
+- Edge AnimateのEventに関して
+    - Symbolイベント
+        - creationComplete
+        Stageが作成され初期化が完了した後に発火されます。
+
+        ここで、必要な関数を定義しています。
+        シンボル変数に関数を設定していますが、変数の値は何でもOKなので問題ありません。
+        主に別イベントで関数を実行したい場合に使います。
+
+    - DOMイベント
+        - compositionReady
+        Edgeコンポジションの再生準備が整ったときに発火されます。
+
+        `creationComplete`で定義して関数を使って、ボールを落とすアニメーションをここで実行します。
+
+SymbolアニメーションAPI
+
+sym.play(position, executeTriggers)
+
+    Timelineを再生します。
+    引数のpositionなしの場合、Playheadの位置から再生します。PlayheadがTimelineの最後にある場合は、はじめから再生を開始します。
+    positionはラベルも指定できます。これによって、繰り返しアニメーションを再生したり、任意の位置に飛んで特定のアニメーションを再生したりすることが可能です。
+    executeTriggersは、再生開始位置にあるTriggerを実行するかしないかを設定できるようです。
+
+sym.stop(position)
+
+    Timelineを停止します。
+    引数のpositionなしの場合、Playheadの位置で停止します。
+    `play`の場合と同じく、positionはラベルも指定できます。
+
+sym.isPlaying()
+
+    Timelineが、再生中かどうかを確認することが可能です。
+    サンプルでは、Stageのボールを落とす要素アニメーションの再生有無によってボールを落とすアニメーションを実行するのに使いました。
+
+sym.getPosition()
+
+    Timeline上のPlayheadの位置がどこにあるかを確認する場合に使います。
+
+sym.getDuration()
+
+    Timelineの長さ(時間)を取得します。
+
+sym.getLabelPosition(aLabel)
+
+    Timeline上に設定したラベルの位置を取得します。
+    ラベル位置の時間が取得できるので、時間計算などにも使用できます。
+
+Symbolの作成/削除に関して
+
+`sym.createChildSymbol(symbolName, parentElementName, index)`
+
+   Symbolインスタンスを作成し、指定した親要素に追加します。
+   symbolには、定義したSymbol(ライブラリパネルのシンボル)の名前を指定します。
+   parentElementNameには、親となるDOM要素を指定します。SymbolのコンテナもDOM要素なのでシンボルの中に指定することも可能です。
+   サンプルでは、落下するボールのSymbolインスタンスを作成するのに使いました。
+
+`sym.deleteSymbol(options)`
+
+   Symbolインスタンスを削除します。サンプルでは、ボールアニメーションの再生が完了した時に自分自身を削除する時に使用しています。
