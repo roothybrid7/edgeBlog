@@ -30,7 +30,8 @@ var symbols = {
          {
             id:'RoundRect',
             type:'rect',
-            rect:['0px','0px','77px','49px','auto','auto'],
+            rect:['0px','0px','80px','80px','auto','auto'],
+            cursor:['pointer'],
             borderRadius:["50px 50px","50px 50px","0px 0px","0px 0px"],
             fill:["rgba(192,192,192,0.00)"],
             stroke:[10,"rgba(51,51,51,1.00)","solid"],
@@ -49,22 +50,23 @@ var symbols = {
          ],
          "${_RoundRect}": [
             ["style", "right", 'auto'],
-            ["style", "left", '0px'],
+            ["style", "cursor", 'pointer'],
             ["style", "border-bottom-left-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
             ["color", "border-color", 'rgba(51,51,51,1.00)'],
             ["subproperty", "boxShadow.offsetH", '5px'],
             ["color", "background-color", 'rgba(192,192,192,0.00)'],
             ["style", "border-top-left-radius", [50,50], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["subproperty", "boxShadow.blur", '3px'],
+            ["subproperty", "boxShadow.color", 'rgba(255,54,54,0.65)'],
             ["style", "border-bottom-right-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
             ["style", "border-style", 'solid'],
             ["style", "border-top-right-radius", [50,50], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["style", "width", '77.005989074707px'],
+            ["style", "width", '80px'],
             ["style", "top", '0px'],
-            ["style", "height", '49px'],
-            ["subproperty", "boxShadow.color", 'rgba(255,54,54,0.65)'],
             ["subproperty", "boxShadow.offsetV", '5px'],
-            ["style", "border-width", '10px']
+            ["style", "height", '80px'],
+            ["subproperty", "boxShadow.blur", '3px'],
+            ["style", "border-width", '10px'],
+            ["style", "left", '0px']
          ],
          "${_sea}": [
             ["style", "height", '10%'],
@@ -84,8 +86,8 @@ var symbols = {
             "moveEnd": 5000
          },
          timeline: [
-            { id: "eid57", tween: [ "style", "${_RoundRect}", "left", '543px', { fromValue: '0px'}], position: 0, duration: 2000 },
-            { id: "eid58", tween: [ "style", "${_RoundRect}", "left", '0px', { fromValue: '543px'}], position: 2500, duration: 2000 }         ]
+            { id: "eid76", tween: [ "style", "${_RoundRect}", "left", '540px', { fromValue: '0px'}], position: 0, duration: 2000 },
+            { id: "eid77", tween: [ "style", "${_RoundRect}", "left", '0px', { fromValue: '540px'}], position: 2500, duration: 2000 }         ]
       }
    }
 },
@@ -102,11 +104,11 @@ var symbols = {
    {
       rect: ['0px','0px','63px','54px','auto','-278px'],
       borderRadius: ['50%','50%','50%','50%'],
-      boxShadow: ['',3,3,3,0,'rgba(0,0,0,0.65)'],
+      fill: ['rgba(192,192,192,1)'],
       id: 'Ellipse',
       stroke: [0,'rgb(0, 0, 0)','none'],
       type: 'ellipse',
-      fill: ['rgba(192,192,192,1)']
+      boxShadow: ['',3,3,3,0,'rgba(0,0,0,0.65)']
    }],
    symbolInstances: [
    ]
@@ -116,7 +118,7 @@ var symbols = {
          "${_Ellipse}": [
             ["color", "background-color", 'rgba(255,0,0,1.00)'],
             ["subproperty", "boxShadow.blur", '3px'],
-            ["style", "bottom", '0px'],
+            ["style", "bottom", '-25px'],
             ["style", "opacity", '1'],
             ["style", "left", '0px'],
             ["style", "width", '63.223701477051px'],
@@ -139,8 +141,8 @@ var symbols = {
          duration: 500,
          autoPlay: false,
          timeline: [
-            { id: "eid28", tween: [ "style", "${_Ellipse}", "bottom", '-450px', { fromValue: '0px'}], position: 0, duration: 500, easing: "easeInQuint" },
-            { id: "eid10", tween: [ "style", "${_Ellipse}", "opacity", '0', { fromValue: '1'}], position: 250, duration: 250, easing: "easeInQuint" }         ]
+            { id: "eid10", tween: [ "style", "${_Ellipse}", "opacity", '0', { fromValue: '1'}], position: 250, duration: 250, easing: "easeInQuint" },
+            { id: "eid79", tween: [ "style", "${_Ellipse}", "bottom", '-450px', { fromValue: '-25px'}], position: 0, duration: 500, easing: "easeInQuint" }         ]
       }
    }
 },
@@ -157,11 +159,11 @@ var symbols = {
    {
       rect: ['0px','0px','63px','54px','auto','-278px'],
       borderRadius: ['50%','50%','50%','50%'],
-      boxShadow: ['',3,3,3,0,'rgba(0,0,0,0.65)'],
+      fill: ['rgba(192,192,192,1)'],
       id: 'Ellipse',
       stroke: [0,'rgb(0, 0, 0)','none'],
       type: 'ellipse',
-      fill: ['rgba(192,192,192,1)']
+      boxShadow: ['',3,3,3,0,'rgba(0,0,0,0.65)']
    }],
    symbolInstances: [
    ]
@@ -171,7 +173,7 @@ var symbols = {
          "${_Ellipse}": [
             ["color", "background-color", 'rgba(0,0,255,1.00)'],
             ["subproperty", "boxShadow.blur", '3px'],
-            ["style", "bottom", '0px'],
+            ["style", "bottom", '-25px'],
             ["style", "opacity", '1'],
             ["style", "left", '0px'],
             ["style", "width", '63.223701477051px'],
@@ -195,7 +197,7 @@ var symbols = {
          autoPlay: false,
          timeline: [
             { id: "eid10", tween: [ "style", "${_Ellipse}", "opacity", '0', { fromValue: '1'}], position: 750, duration: 250, easing: "easeInOutBounce" },
-            { id: "eid28", tween: [ "style", "${_Ellipse}", "bottom", '-450px', { fromValue: '0px'}], position: 0, duration: 1000, easing: "easeInOutBounce" }         ]
+            { id: "eid28", tween: [ "style", "${_Ellipse}", "bottom", '-450px', { fromValue: '-25px'}], position: 0, duration: 1000, easing: "easeInOutBounce" }         ]
       }
    }
 },
@@ -212,11 +214,11 @@ var symbols = {
    {
       rect: ['0px','0px','63px','54px','-278px','auto'],
       borderRadius: ['50%','50%','50%','50%'],
-      boxShadow: ['',3,3,3,0,'rgba(0,0,0,0.65)'],
+      fill: ['rgba(192,192,192,1)'],
       id: 'Ellipse',
       stroke: [0,'rgb(0, 0, 0)','none'],
       type: 'ellipse',
-      fill: ['rgba(192,192,192,1)']
+      boxShadow: ['',3,3,3,0,'rgba(0,0,0,0.65)']
    }],
    symbolInstances: [
    ]
@@ -226,7 +228,7 @@ var symbols = {
          "${_Ellipse}": [
             ["color", "background-color", 'rgba(0,255,0,1.00)'],
             ["subproperty", "boxShadow.blur", '3px'],
-            ["style", "bottom", '0px'],
+            ["style", "bottom", '-25px'],
             ["style", "opacity", '1'],
             ["style", "left", '0px'],
             ["style", "width", '63.223701477051px'],
@@ -251,10 +253,10 @@ var symbols = {
          duration: 1000,
          autoPlay: false,
          timeline: [
-            { id: "eid28", tween: [ "style", "${_Ellipse}", "bottom", '-450px', { fromValue: '0px'}], position: 0, duration: 1000, easing: "easeInCirc" },
-            { id: "eid64", tween: [ "transform", "${_Ellipse}", "scaleY", '1.5', { fromValue: '1'}], position: 0, duration: 500, easing: "easeInCirc" },
+            { id: "eid65", tween: [ "transform", "${_Ellipse}", "rotateZ", '720deg', { fromValue: '0deg'}], position: 0, duration: 1000, easing: "easeInCirc" },
             { id: "eid10", tween: [ "style", "${_Ellipse}", "opacity", '0', { fromValue: '1'}], position: 750, duration: 250, easing: "easeInCirc" },
-            { id: "eid65", tween: [ "transform", "${_Ellipse}", "rotateZ", '720deg', { fromValue: '0deg'}], position: 0, duration: 1000, easing: "easeInCirc" }         ]
+            { id: "eid28", tween: [ "style", "${_Ellipse}", "bottom", '-450px', { fromValue: '-25px'}], position: 0, duration: 1000, easing: "easeInCirc" },
+            { id: "eid64", tween: [ "transform", "${_Ellipse}", "scaleY", '1.5', { fromValue: '1'}], position: 0, duration: 500, easing: "easeInCirc" }         ]
       }
    }
 }

@@ -22,16 +22,46 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
       
 
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
+sym.getVariable("updateDrop")();
+
+      });
+      //Edge binding end
+
+      Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
+         /**
+          * Ball symbol names.
+          * @type {Array.<string>}
+          */
          var balls = ["redBall", "blueBall", "greenBall"];
          
-         function fall() {
-           var timeout = Math.random() * 1000,
-               ballIndex = Math.floor(Math.random() * balls.length);
+         /**
+          * Drop a ball by random.
+          */
+         function drop() {
+           var ballIndex = Math.floor(Math.random() * balls.length);
                ball = sym.createChildSymbol(balls[ballIndex], "RoundRect");
            ball.play();
-           setTimeout(fall, timeout);
          }
-         setTimeout(fall, 100);
+         
+         function updateDrop() {
+           var timeout = Math.random() * 1000;
+           if (sym.isPlaying()) {
+             drop();
+           }
+           setTimeout(updateDrop, timeout);
+         }
+         
+         sym.setVariable("updateDrop", updateDrop);
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "${_RoundRect}", "click", function(sym, e) {
+         if (sym.isPlaying()) {
+           sym.stop();
+         } else {
+           sym.play();
+         }
 
       });
       //Edge binding end
