@@ -24,7 +24,7 @@ var symbols = {
          {
             id:'sea',
             type:'image',
-            rect:['0','auto','100%','10%','auto','0px'],
+            rect:['0','auto','100%','10%','0px','auto'],
             fill:["rgba(0,0,0,0)",im+"sea.png",'0%','0%','2000px','1372px']
          },
          {
@@ -44,8 +44,8 @@ var symbols = {
    states: {
       "Base State": {
          "${_Stage}": [
-            ["color", "background-color", 'rgba(0,170,255,0.60)'],
             ["style", "height", '480px'],
+            ["color", "background-color", 'rgba(0,170,255,0.60)'],
             ["style", "width", '640px']
          ],
          "${_RoundRect}": [
@@ -56,23 +56,23 @@ var symbols = {
             ["subproperty", "boxShadow.offsetH", '5px'],
             ["color", "background-color", 'rgba(192,192,192,0.00)'],
             ["style", "border-top-left-radius", [50,50], {valueTemplate:'@@0@@px @@1@@px'} ],
-            ["subproperty", "boxShadow.color", 'rgba(255,54,54,0.65)'],
+            ["subproperty", "boxShadow.blur", '3px'],
             ["style", "border-bottom-right-radius", [0,0], {valueTemplate:'@@0@@px @@1@@px'} ],
             ["style", "border-style", 'solid'],
             ["style", "border-top-right-radius", [50,50], {valueTemplate:'@@0@@px @@1@@px'} ],
             ["style", "width", '80px'],
             ["style", "top", '0px'],
-            ["subproperty", "boxShadow.offsetV", '5px'],
+            ["style", "left", '0px'],
             ["style", "height", '80px'],
-            ["subproperty", "boxShadow.blur", '3px'],
             ["style", "border-width", '10px'],
-            ["style", "left", '0px']
+            ["subproperty", "boxShadow.color", 'rgba(255,54,54,0.65)'],
+            ["subproperty", "boxShadow.offsetV", '5px']
          ],
          "${_sea}": [
             ["style", "height", '10%'],
-            ["style", "bottom", '0px'],
+            ["style", "width", '100%'],
             ["style", "top", 'auto'],
-            ["style", "width", '100%']
+            ["style", "bottom", '0px']
          ]
       }
    },
@@ -104,11 +104,11 @@ var symbols = {
    {
       rect: ['0px','0px','63px','54px','auto','-278px'],
       borderRadius: ['50%','50%','50%','50%'],
-      fill: ['rgba(192,192,192,1)'],
+      boxShadow: ['',3,3,3,0,'rgba(0,0,0,0.65)'],
       id: 'Ellipse',
       stroke: [0,'rgb(0, 0, 0)','none'],
       type: 'ellipse',
-      boxShadow: ['',3,3,3,0,'rgba(0,0,0,0.65)']
+      fill: ['rgba(192,192,192,1)']
    }],
    symbolInstances: [
    ]
@@ -159,11 +159,11 @@ var symbols = {
    {
       rect: ['0px','0px','63px','54px','auto','-278px'],
       borderRadius: ['50%','50%','50%','50%'],
-      fill: ['rgba(192,192,192,1)'],
+      boxShadow: ['',3,3,3,0,'rgba(0,0,0,0.65)'],
       id: 'Ellipse',
       stroke: [0,'rgb(0, 0, 0)','none'],
       type: 'ellipse',
-      boxShadow: ['',3,3,3,0,'rgba(0,0,0,0.65)']
+      fill: ['rgba(192,192,192,1)']
    }],
    symbolInstances: [
    ]
@@ -214,11 +214,11 @@ var symbols = {
    {
       rect: ['0px','0px','63px','54px','-278px','auto'],
       borderRadius: ['50%','50%','50%','50%'],
-      fill: ['rgba(192,192,192,1)'],
+      boxShadow: ['',3,3,3,0,'rgba(0,0,0,0.65)'],
       id: 'Ellipse',
       stroke: [0,'rgb(0, 0, 0)','none'],
       type: 'ellipse',
-      boxShadow: ['',3,3,3,0,'rgba(0,0,0,0.65)']
+      fill: ['rgba(192,192,192,1)']
    }],
    symbolInstances: [
    ]
@@ -234,11 +234,11 @@ var symbols = {
             ["style", "width", '63.223701477051px'],
             ["style", "top", 'auto'],
             ["transform", "scaleY", '1'],
-            ["transform", "rotateZ", '0deg'],
+            ["subproperty", "boxShadow.color", 'rgba(0,0,0,0.65)'],
             ["style", "height", '53.533332824707px'],
             ["subproperty", "boxShadow.offsetV", '5px'],
             ["subproperty", "boxShadow.offsetH", '5px'],
-            ["subproperty", "boxShadow.color", 'rgba(0,0,0,0.65)']
+            ["transform", "rotateZ", '0deg']
          ],
          "${symbolSelector}": [
             ["style", "height", '53.533332824707px'],
@@ -253,8 +253,8 @@ var symbols = {
          duration: 1000,
          autoPlay: false,
          timeline: [
-            { id: "eid65", tween: [ "transform", "${_Ellipse}", "rotateZ", '720deg', { fromValue: '0deg'}], position: 0, duration: 1000, easing: "easeInCirc" },
             { id: "eid10", tween: [ "style", "${_Ellipse}", "opacity", '0', { fromValue: '1'}], position: 750, duration: 250, easing: "easeInCirc" },
+            { id: "eid65", tween: [ "transform", "${_Ellipse}", "rotateZ", '720deg', { fromValue: '0deg'}], position: 0, duration: 1000, easing: "easeInCirc" },
             { id: "eid28", tween: [ "style", "${_Ellipse}", "bottom", '-450px', { fromValue: '-25px'}], position: 0, duration: 1000, easing: "easeInCirc" },
             { id: "eid64", tween: [ "transform", "${_Ellipse}", "scaleY", '1.5', { fromValue: '1'}], position: 0, duration: 500, easing: "easeInCirc" }         ]
       }

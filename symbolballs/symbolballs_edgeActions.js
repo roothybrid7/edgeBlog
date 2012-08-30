@@ -15,18 +15,18 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
       
       Symbol.bindTimelineAction(compId, symbolName, "Default Timeline", "complete", function(sym, e) {
          sym.play(0);
-
-      });
-      //Edge binding end
-
       
-
-      Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-sym.getVariable("updateDrop")();
-
       });
       //Edge binding end
-
+      
+      
+      
+      Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
+      sym.getVariable("updateDrop")();
+      
+      });
+      //Edge binding end
+      
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
          /**
           * Ball symbol names.
@@ -38,7 +38,7 @@ sym.getVariable("updateDrop")();
           * Drop a ball by random.
           */
          function drop() {
-           var ballIndex = Math.floor(Math.random() * 9999) % balls.length;
+           var ballIndex = Math.floor(Math.random() * 9999) % balls.length,
                ball = sym.createChildSymbol(balls[ballIndex], "RoundRect");
            ball.play();
          }
@@ -53,17 +53,17 @@ sym.getVariable("updateDrop")();
          }
          
          sym.setVariable("updateDrop", updateDrop);
-
+      
       });
       //Edge binding end
-
+      
       Symbol.bindElementAction(compId, symbolName, "${_RoundRect}", "click", function(sym, e) {
          if (sym.isPlaying()) {
            sym.stop();
          } else {
            sym.play();
          }
-
+      
       });
       //Edge binding end
 
