@@ -19,13 +19,19 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
       });
       //Edge binding end
 
-      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 0, function(sym, e) {
-         var timeout = Math.random() * 2000;
-         console.log(timeout);
-         setTimeout(function() {
-           var hoge = sym.createChildSymbol("hoge", "Rectangle");
-           hoge.play();
-         }, timeout);
+      
+
+      Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
+         var balls = ["redBall", "blueBall", "greenBall"];
+         
+         function fall() {
+           var timeout = Math.random() * 1000,
+               ballIndex = Math.floor(Math.random() * balls.length);
+               ball = sym.createChildSymbol(balls[ballIndex], "RoundRect");
+           ball.play();
+           setTimeout(fall, timeout);
+         }
+         setTimeout(fall, 100);
 
       });
       //Edge binding end
@@ -44,7 +50,35 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
       });
       //Edge binding end
 
-   })("hoge");
-   //Edge symbol end:'hoge'
+   })("redBall");
+   //Edge symbol end:'redBall'
+
+   //=========================================================
+   
+   //Edge symbol: 'redBall_1'
+   (function(symbolName) {   
+   
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1000, function(sym, e) {
+         sym.deleteSymbol();
+
+      });
+         //Edge binding end
+
+      })("blueBall");
+   //Edge symbol end:'blueBall'
+
+   //=========================================================
+   
+   //Edge symbol: 'blueBall_1'
+   (function(symbolName) {   
+   
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1000, function(sym, e) {
+         sym.deleteSymbol();
+
+      });
+         //Edge binding end
+
+      })("greenBall");
+   //Edge symbol end:'greenBall'
 
 })(jQuery, AdobeEdge, "EDGE-29296295");
