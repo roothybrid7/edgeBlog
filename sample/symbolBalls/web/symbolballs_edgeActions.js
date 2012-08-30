@@ -5,8 +5,8 @@
 //Edge binding end
 Symbol.bindElementAction(compId,symbolName,"document","compositionReady",function(sym,e){sym.getVariable("updateDrop")();});
 //Edge binding end
-Symbol.bindSymbolAction(compId,symbolName,"creationComplete",function(sym,e){var balls=["redBall","blueBall","greenBall"];function drop(){var ballIndex=Math.floor(Math.random()*balls.length);ball=sym.createChildSymbol(balls[ballIndex],"RoundRect");ball.play();}
-function updateDrop(){var timeout=Math.random()*1000;if(sym.isPlaying()){drop();}
+Symbol.bindSymbolAction(compId,symbolName,"creationComplete",function(sym,e){var balls=["redBall","blueBall","greenBall"];function drop(){var ballIndex=Math.floor(Math.random()*9999)%balls.length;ball=sym.createChildSymbol(balls[ballIndex],"RoundRect");ball.play();}
+function updateDrop(){var timeout=Math.random()*sym.getLabelPosition("moveEnd")/4;if(sym.isPlaying()){drop();}
 setTimeout(updateDrop,timeout);}
 sym.setVariable("updateDrop",updateDrop);});
 //Edge binding end
@@ -18,7 +18,9 @@ Symbol.bindElementAction(compId,symbolName,"${_RoundRect}","click",function(sym,
 //=========================================================
 
 //Edge symbol: 'hoge'
-(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",500,function(sym,e){sym.deleteSymbol();});
+(function(symbolName){Symbol.bindSymbolAction(compId,symbolName,"creationComplete",function(sym,e){sym.$("Ellipse").css({position:"absolute"});});
+//Edge binding end
+Symbol.bindTimelineAction(compId,symbolName,"Default Timeline","complete",function(sym,e){sym.deleteSymbol();});
 //Edge binding end
 })("redBall");
 //Edge symbol end:'redBall'
@@ -26,7 +28,9 @@ Symbol.bindElementAction(compId,symbolName,"${_RoundRect}","click",function(sym,
 //=========================================================
 
 //Edge symbol: 'redBall_1'
-(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1000,function(sym,e){sym.deleteSymbol();});
+(function(symbolName){Symbol.bindSymbolAction(compId,symbolName,"creationComplete",function(sym,e){sym.$("Ellipse").css({position:"absolute"});});
+//Edge binding end
+Symbol.bindTimelineAction(compId,symbolName,"Default Timeline","complete",function(sym,e){sym.deleteSymbol();});
 //Edge binding end
 })("blueBall");
 //Edge symbol end:'blueBall'
@@ -34,7 +38,9 @@ Symbol.bindElementAction(compId,symbolName,"${_RoundRect}","click",function(sym,
 //=========================================================
 
 //Edge symbol: 'blueBall_1'
-(function(symbolName){Symbol.bindTriggerAction(compId,symbolName,"Default Timeline",1000,function(sym,e){sym.deleteSymbol();});
+(function(symbolName){Symbol.bindSymbolAction(compId,symbolName,"creationComplete",function(sym,e){sym.$("Ellipse").css({position:"absolute"});});
+//Edge binding end
+Symbol.bindTimelineAction(compId,symbolName,"Default Timeline","complete",function(sym,e){sym.deleteSymbol();});
 //Edge binding end
 })("greenBall");
 //Edge symbol end:'greenBall'
