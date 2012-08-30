@@ -38,7 +38,7 @@ sym.getVariable("updateDrop")();
           * Drop a ball by random.
           */
          function drop() {
-           var ballIndex = Math.floor(Math.random() * balls.length);
+           var ballIndex = Math.floor(Math.random() * 9999) % balls.length;
                ball = sym.createChildSymbol(balls[ballIndex], "RoundRect");
            ball.play();
          }
