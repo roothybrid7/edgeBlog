@@ -21,7 +21,12 @@ var symbols = {
    resizeInstances: false,
    content: {
          dom: [
-],
+         {
+            id:'bg',
+            type:'image',
+            rect:['0','0','100%','100%','auto','auto'],
+            fill:["rgba(0,0,0,0)",im+"bg.jpg",'0%','0%','100%','auto']
+         }],
          symbolInstances: [
 
          ]
@@ -29,9 +34,14 @@ var symbols = {
    states: {
       "Base State": {
          "${_Stage}": [
-            ["color", "background-color", 'rgba(255,255,255,1)'],
             ["style", "height", '400px'],
+            ["color", "background-color", 'rgba(255,255,255,1)'],
             ["style", "width", '640px']
+         ],
+         "${_bg}": [
+            ["style", "height", '100%'],
+            ["style", "background-size", [100,'auto'], {valueTemplate:'@@0@@% @@1@@'} ],
+            ["style", "width", '100%']
          ]
       }
    },

@@ -138,3 +138,11 @@ Symbolの作成/削除に関して
 `sym.deleteSymbol(options)`
 
    Symbolインスタンスを削除します。サンプルでは、ボールアニメーションの再生が完了した時に自分自身を削除する時に使用しています。
+
+##SpriteImage
+Sprite画像を用意して、CSSで画像位置の変更と切り抜きを利用してアニメーションを作成します。
+このサンプルでは、Sprite画像をシンボル化し、Timelineで切り抜きと画像位置の変更を駆使して、アニメーションしているように見せます。
+
+[CSSスプライト](http://www.adobe.com/jp/devnet/fireworks/articles/css_sprites_cs5.html)
+
+
