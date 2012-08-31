@@ -29,7 +29,7 @@ var symbols = {
             fill:["rgba(0,0,0,0)",im+"bg.jpg",'0%','0%','100%','auto']
          },
          {
-            id:'catAnimattion',
+            id:'catRunAction',
             type:'rect',
             rect:['25','265','auto','auto','auto','auto']
          },
@@ -55,6 +55,25 @@ var symbols = {
                font:['Oregano, Arial, serif',40,"rgba(34,0,34,1.00)","700","none",""],
                textShadow:["rgba(0,0,0,0.65)",3,3,3]
             }]
+         },
+         {
+            id:'Button',
+            type:'rect',
+            rect:['504px','212px','101px','38px','auto','auto'],
+            cursor:['pointer'],
+            borderRadius:["10px","10px","10px","10px"],
+            fill:["rgba(255,255,255,1.00)"],
+            stroke:[2,"rgb(0, 0, 0)","solid"],
+            boxShadow:["",5,5,5,0,"rgba(0,0,0,0.65)"],
+            c:[
+            {
+               id:'BtnText',
+               type:'text',
+               rect:['20%','0%','auto','30px','auto','auto'],
+               text:"run!",
+               align:"left",
+               font:['Arial, Helvetica, sans-serif',32,"rgba(34,0,34,1)","bold","none","normal"]
+            }]
          }],
          symbolInstances: [
          {
@@ -62,8 +81,8 @@ var symbols = {
             symbolName:'blackcatSprite'
          },
          {
-            id:'catAnimattion',
-            symbolName:'catAnimattion'
+            id:'catRunAction',
+            symbolName:'catRunAction'
          }
          ]
       },
@@ -97,10 +116,29 @@ var symbols = {
             ["subproperty", "textShadow.color", 'rgba(0,0,0,0.65)'],
             ["subproperty", "textShadow.offsetV", '3px']
          ],
+         "${_BtnText}": [
+            ["style", "top", '0%'],
+            ["style", "height", '30px'],
+            ["style", "font-family", 'Arial, Helvetica, sans-serif'],
+            ["style", "left", '20%'],
+            ["style", "font-size", '32px']
+         ],
          "${_Stage}": [
             ["style", "height", '400px'],
             ["color", "background-color", 'rgba(255,255,255,1)'],
             ["style", "width", '640px']
+         ],
+         "${_Button}": [
+            ["color", "background-color", 'rgba(255,255,255,1.00)'],
+            ["subproperty", "boxShadow.color", 'rgba(0,0,0,0.65)'],
+            ["style", "border-style", 'solid'],
+            ["style", "border-width", '2px'],
+            ["style", "top", '212.27px'],
+            ["style", "cursor", 'pointer'],
+            ["style", "left", '504px'],
+            ["subproperty", "boxShadow.offsetV", '5px'],
+            ["subproperty", "boxShadow.offsetH", '5px'],
+            ["subproperty", "boxShadow.blur", '5px']
          ],
          "${_blackcatSprite}": [
             ["style", "top", 'auto'],
@@ -210,10 +248,10 @@ var symbols = {
             { id: "eid15", tween: [ "style", "${_cat}", "clip", [0,100,90,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,100,503,0]}], position: 3000, duration: 0 },
             { id: "eid56", tween: [ "style", "${_cat}", "clip", [0,80,90,0], { valueTemplate: 'rect(@@0@@px @@1@@px @@2@@px @@3@@px)', fromValue: [0,100,90,0]}], position: 4000, duration: 0 },
             { id: "eid150", tween: [ "style", "${_cat}", "-webkit-transform-origin", [50,18], { valueTemplate: '@@0@@% @@1@@%', fromValue: [50,18]}], position: 4000, duration: 0 },
-            { id: "eid218", tween: [ "style", "${_cat}", "-moz-transform-origin", [50,18], { valueTemplate: '@@0@@% @@1@@%', fromValue: [50,18]}], position: 4000, duration: 0 },
-            { id: "eid219", tween: [ "style", "${_cat}", "-ms-transform-origin", [50,18], { valueTemplate: '@@0@@% @@1@@%', fromValue: [50,18]}], position: 4000, duration: 0 },
-            { id: "eid220", tween: [ "style", "${_cat}", "msTransformOrigin", [50,18], { valueTemplate: '@@0@@% @@1@@%', fromValue: [50,18]}], position: 4000, duration: 0 },
-            { id: "eid221", tween: [ "style", "${_cat}", "-o-transform-origin", [50,18], { valueTemplate: '@@0@@% @@1@@%', fromValue: [50,18]}], position: 4000, duration: 0 },
+            { id: "eid439", tween: [ "style", "${_cat}", "-moz-transform-origin", [50,18], { valueTemplate: '@@0@@% @@1@@%', fromValue: [50,18]}], position: 4000, duration: 0 },
+            { id: "eid440", tween: [ "style", "${_cat}", "-ms-transform-origin", [50,18], { valueTemplate: '@@0@@% @@1@@%', fromValue: [50,18]}], position: 4000, duration: 0 },
+            { id: "eid441", tween: [ "style", "${_cat}", "msTransformOrigin", [50,18], { valueTemplate: '@@0@@% @@1@@%', fromValue: [50,18]}], position: 4000, duration: 0 },
+            { id: "eid442", tween: [ "style", "${_cat}", "-o-transform-origin", [50,18], { valueTemplate: '@@0@@% @@1@@%', fromValue: [50,18]}], position: 4000, duration: 0 },
             { id: "eid1", tween: [ "style", "${_cat}", "background-position", [0,0], { valueTemplate: '@@0@@px @@1@@px', fromValue: [0,0]}], position: 0, duration: 0 },
             { id: "eid2", tween: [ "style", "${_cat}", "background-position", [-205,0], { valueTemplate: '@@0@@px @@1@@px', fromValue: [0,0]}], position: 1000, duration: 0 },
             { id: "eid12", tween: [ "style", "${_cat}", "background-position", [-90,0], { valueTemplate: '@@0@@px @@1@@px', fromValue: [-205,0]}], position: 2000, duration: 0 },
@@ -222,7 +260,7 @@ var symbols = {
       }
    }
 },
-"catAnimattion": {
+"catRunAction": {
    version: "0.1.7",
    minimumCompatibleVersion: "0.1.7",
    build: "0.11.0.164",
@@ -233,7 +271,7 @@ var symbols = {
    content: {
    dom: [
    {
-      transform: [{},{},['10deg','0deg']],
+      transform: [{},{},['0deg','0deg']],
       rect: ['4px','60px','582px','50px','auto','auto'],
       boxShadow: ['',3,3,3,0,'rgba(0,0,0,0.65)'],
       id: 'Rectangle',
@@ -259,15 +297,16 @@ var symbols = {
             ["style", "top", '60px'],
             ["subproperty", "boxShadow.offsetH", '3px'],
             ["subproperty", "boxShadow.color", 'rgba(0,0,0,0.65)'],
-            ["transform", "skewX", '10deg'],
+            ["transform", "skewX", '0deg'],
             ["style", "height", '50px'],
             ["subproperty", "boxShadow.offsetV", '3px'],
             ["style", "left", '4.01px'],
             ["subproperty", "boxShadow.blur", '3px']
          ],
          "${_blackcatSprite}": [
+            ["style", "top", '-60.35px'],
             ["style", "left", '462.25px'],
-            ["style", "top", '-60.35px']
+            ["transform", "scaleX", '1']
          ],
          "${symbolSelector}": [
             ["style", "height", '513px'],
@@ -279,10 +318,20 @@ var symbols = {
       "Default Timeline": {
          fromState: "Base State",
          toState: "",
-         duration: 0,
+         duration: 2500,
          autoPlay: false,
          timeline: [
-         ]
+            { id: "eid222", tween: [ "style", "${_blackcatSprite}", "left", '10.99px', { fromValue: '462.25px'}], position: 500, duration: 500 },
+            { id: "eid227", tween: [ "style", "${_blackcatSprite}", "left", '462px', { fromValue: '10.99px'}], position: 1500, duration: 500 },
+            { id: "eid229", tween: [ "transform", "${_blackcatSprite}", "scaleX", '1', { fromValue: '1'}], position: 0, duration: 0 },
+            { id: "eid226", tween: [ "transform", "${_blackcatSprite}", "scaleX", '-1', { fromValue: '1'}], position: 1500, duration: 0 },
+            { id: "eid230", tween: [ "transform", "${_blackcatSprite}", "scaleX", '1', { fromValue: '-1'}], position: 2500, duration: 0 },
+            { id: "eid236", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['stop', '${_blackcatSprite}', ['standup'] ], ""], position: 0 },
+            { id: "eid237", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['stop', '${_blackcatSprite}', ['running'] ], ""], position: 500 },
+            { id: "eid238", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['stop', '${_blackcatSprite}', ['standing'] ], ""], position: 1000 },
+            { id: "eid239", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['stop', '${_blackcatSprite}', ['running'] ], ""], position: 1500 },
+            { id: "eid240", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['stop', '${_blackcatSprite}', ['standing'] ], ""], position: 2000 },
+            { id: "eid241", trigger: [ function executeSymbolFunction(e, data) { this._executeSymbolAction(e, data); }, ['stop', '${_blackcatSprite}', ['sitting'] ], ""], position: 2500 }         ]
       }
    }
 }

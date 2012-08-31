@@ -52,6 +52,21 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
       });
       //Edge binding end
 
+      Symbol.bindElementAction(compId, symbolName, "${_Button}", "click", function(sym, e) {
+         var catRunAction = sym.getSymbol("catRunAction");
+         if (!catRunAction.isPlaying()) {
+           catRunAction.play(0);
+         }
+
+      });
+      //Edge binding end
+
+      Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
+         sym.getSymbol("catRunAction").getSymbol("blackcatSprite").play("waiting");
+
+      });
+      //Edge binding end
+
    })("stage");
    //Edge symbol end:'stage'
 
@@ -76,7 +91,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
    //Edge symbol: 'catAnimattion'
    (function(symbolName) {   
    
-   })("catAnimattion");
-   //Edge symbol end:'catAnimattion'
+      Symbol.bindTimelineAction(compId, symbolName, "Default Timeline", "complete", function(sym, e) {
+         sym.getSymbol("blackcatSprite").play("waiting");
+
+      });
+      //Edge binding end
+
+   })("catRunAction");
+   //Edge symbol end:'catRunAction'
 
 })(jQuery, AdobeEdge, "EDGE-27987461");
