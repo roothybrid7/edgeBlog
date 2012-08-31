@@ -15,15 +15,13 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
       
       Symbol.bindTimelineAction(compId, symbolName, "Default Timeline", "complete", function(sym, e) {
          sym.play(0);
-      
       });
       //Edge binding end
       
       
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-      sym.getVariable("updateDrop")();
-      
+        sym.getVariable("updateDrop")();
       });
       //Edge binding end
       
@@ -53,7 +51,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
          }
          
          sym.setVariable("updateDrop", updateDrop);
-      
       });
       //Edge binding end
       
@@ -63,7 +60,6 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
          } else {
            sym.play();
          }
-      
       });
       //Edge binding end
 
@@ -76,17 +72,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
    (function(symbolName) {   
    
       
-
+   
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
          sym.$("Ellipse").css({position: "absolute"});
-         
-
       });
       //Edge binding end
-
+   
       Symbol.bindTimelineAction(compId, symbolName, "Default Timeline", "complete", function(sym, e) {
          sym.deleteSymbol();
-
       });
       //Edge binding end
 
@@ -99,16 +92,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
    (function(symbolName) {   
    
       
-
+   
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
          sym.$("Ellipse").css({position: "absolute"});
-
       });
       //Edge binding end
-
+   
       Symbol.bindTimelineAction(compId, symbolName, "Default Timeline", "complete", function(sym, e) {
          sym.deleteSymbol();
-
       });
       //Edge binding end
 
@@ -121,17 +112,14 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
    (function(symbolName) {   
    
       
-
+   
       Symbol.bindSymbolAction(compId, symbolName, "creationComplete", function(sym, e) {
          sym.$("Ellipse").css({position: "absolute"});
-         
-
       });
       //Edge binding end
-
+   
       Symbol.bindTimelineAction(compId, symbolName, "Default Timeline", "complete", function(sym, e) {
          sym.deleteSymbol();
-
       });
       //Edge binding end
 
