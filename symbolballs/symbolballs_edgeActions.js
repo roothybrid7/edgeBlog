@@ -33,7 +33,7 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
          var balls = ["redBall", "blueBall", "greenBall"];
          
          /**
-          * Drop a ball by random.
+          * Drop a ball at random.
           */
          function drop() {
            var ballIndex = Math.floor(Math.random() * 9999) % balls.length,
