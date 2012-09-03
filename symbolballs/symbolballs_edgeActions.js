@@ -21,7 +21,8 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
       
       
       Symbol.bindElementAction(compId, symbolName, "document", "compositionReady", function(sym, e) {
-        sym.getVariable("updateDrop")();
+        //sym.getVariable("updateDrop")();
+
       });
       //Edge binding end
       
@@ -43,14 +44,15 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
          
          function updateDrop() {
            // sym.getLabelPosition("moveEnd") OR sym.getDuration()
-           var timeout = Math.random() * sym.getLabelPosition("moveEnd") / 4;
+         //  var timeout = Math.random() * sym.getLabelPosition("moveEnd") / 4;
            if (sym.isPlaying()) {
              drop();
            }
-           setTimeout(updateDrop, timeout);
+         //  setTimeout(updateDrop, timeout);
          }
          
          sym.setVariable("updateDrop", updateDrop);
+
       });
       //Edge binding end
       
@@ -60,6 +62,18 @@ var Composition = Edge.Composition, Symbol = Edge.Symbol; // よく使用する 
          } else {
            sym.play();
          }
+      });
+      //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 1000, function(sym, e) {
+         sym.getVariable("updateDrop")();
+
+      });
+      //Edge binding end
+
+      Symbol.bindTriggerAction(compId, symbolName, "Default Timeline", 3500, function(sym, e) {
+         sym.getVariable("updateDrop")();
+
       });
       //Edge binding end
 
